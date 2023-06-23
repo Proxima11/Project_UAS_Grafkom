@@ -27,6 +27,9 @@ public class Main {
             = new ArrayList<>();
     private ArrayList<Object> objects1
             = new ArrayList<>();
+    private ArrayList<Object> objects2
+            = new ArrayList<>();
+
     private ArrayList<Object> objectsRectangle
             = new ArrayList<>();
 
@@ -77,7 +80,7 @@ public class Main {
         ));
 
 
-        ObjectLoader object = new ObjectLoader("D:/Kuliah Semester 4/Grafkom B/Code/GrafkomA2223-master/GrafkomA2223-master/resources/LTrain/ltrain.obj", "obj");
+        ObjectLoader objectBotol = new ObjectLoader("D:\\Kuliah Semester 4\\Grafkom B\\Code\\Project_UAS\\Project_UAS\\Project_UAS_Grafkom\\resources\\aset\\Bottle\\Bottle.obj", "obj");
         objects.add(new Sphere(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -97,9 +100,35 @@ public class Main {
                         )
                 ), new Vector4f(1.0f,1.0f,0.0f,1.0f), Arrays.asList(0.0f,0.0f,0f), 1f,1f,1f,36,18,"box"
         ));
-        ((Sphere)objects.get(0)).setVertices(object.vertices);
-        ((Sphere)objects.get(0)).setNormal(object.normals);
-        ((Sphere)objects.get(0)).setIndicies(object.indicies);
+        ((Sphere)objects.get(0)).setVertices(objectBotol.vertices);
+        ((Sphere)objects.get(0)).setNormal(objectBotol.normals);
+        ((Sphere)objects.get(0)).setIndicies(objectBotol.indicies);
+
+//        ObjectLoader objectRamen = new ObjectLoader("D:\\Kuliah Semester 4\\Grafkom B\\Code\\Project_UAS\\Project_UAS\\Project_UAS_Grafkom\\resources\\aset\\japaneseramenstall\\source\\Japanese Ramen Stall.obj", "obj");
+//        objects2.add(new Sphere(
+//                Arrays.asList(
+//                        //shaderFile lokasi menyesuaikan objectnya
+//                        new ShaderProgram.ShaderModuleData
+//                                ("resources/shaders/scene.vert"
+//                                        , GL_VERTEX_SHADER),
+//                        new ShaderProgram.ShaderModuleData
+//                                ("resources/shaders/scene.frag"
+//                                        , GL_FRAGMENT_SHADER)
+//                ),
+//                new ArrayList<>(
+//                        List.of(
+//                                new Vector3f(-0.0f,0.0f,0.0f),
+//                                new Vector3f(-0.0f,-0.0f,0.0f),
+//                                new Vector3f(0.0f,-0.0f,0.0f),
+//                                new Vector3f(0.0f,0.0f,0.0f)
+//                        )
+//                ), new Vector4f(1.0f,1.0f,0.0f,1.0f), Arrays.asList(0.0f,0.0f,0f), 1f,1f,1f,36,18,"box"
+//        ));
+//        ((Sphere)objects2.get(0)).setVertices(objectRamen.vertices);
+//        ((Sphere)objects2.get(0)).setNormal(objectRamen.normals);
+//        ((Sphere)objects2.get(0)).setIndicies(objectRamen.indicies);
+//        objects2.get(0).scaleObject(0.01f, 0.01f, 0.01f);
+//        objects2.get(0).translateObject(0.3f, 0.0f, 0.0f);
 
 
         objects.get(0).scaleObject(0.05f,0.05f,0.05f);
@@ -515,6 +544,9 @@ public class Main {
                 object.draw(camera,projection);
             }
             for(Object object: objects){
+                object.draw(camera,projection);
+            }
+            for(Object object: objects2){
                 object.draw(camera,projection);
             }
 
